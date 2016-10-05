@@ -2,14 +2,13 @@
  * Created by lenovo on 2016/9/24.
  */
 public class Time {
+   
    private int year;
-     private   int month;
-    private int day;
+   private int month;
+   private int day;
    private int hour;
    private int minute;
    private int second;
-
-
 
     Time(int timestamp) {
         int d, e = 0;
@@ -18,7 +17,6 @@ public class Time {
         this.minute = (timestamp - second) % 3600 / 60;
         this.hour = (timestamp - second - minute) % 86400 / 3600 + 8;
         d = timestamp / 3600 / 24;
-
 
         e = d % 1461;
         while (e >= 365)
@@ -124,26 +122,18 @@ public class Time {
             this.day=this.day+1;
         if (this.hour==24)
             this.hour=0;
-
             }
-
-
-
-
+   
    Time(int timestamp, String timezone) {
         this(timestamp);
         switch (timezone) {
             case ("北京"):
-
                 break;
             case ("东京"):
                 this.hour = this.hour + 1;
                 if (this.hour > 24)
                     this.hour = this.hour - 24;
-                if (this.hour > 24) this.day = this.day + 1;
-
-
-
+                if (this.hour > 24) this.day = this.day + 1；
                 break;
             case ("关岛"):
                 this.hour = this.hour + 2;
